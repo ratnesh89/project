@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="css/forgot.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form id="forgotForm" method="post" action="reset_password.php">
+                <h2>Forgot Password</h2>
+                <input type="text" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number" required>
+                <button type="button" id="sendCode">Send Verification Code</button>
+                <input type="text" name="verificationcode" id="verificationcode" placeholder="Verification Code" required style="display:none;">
+                <input type="password" name="newpassword" id="newpassword" placeholder="New Password" required style="display:none;">
+                <button type="submit" id="resetButton" disabled>Reset Password</button>
+                <p>Remembered your password? <a href="login.html">Login</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        const sendCode = document.getElementById('sendCode');
+        const verificationCode = document.getElementById('verificationcode');
+        const newpassword = document.getElementById('newpassword');
+        const resetButton = document.getElementById('resetButton');
+
+        sendCode.addEventListener('click', () => {
+            verificationCode.style.display = 'block';
+            newpassword.style.display = 'block';
+            resetButton.disabled = false;
+        });
+    </script>    
+</body>
+</html>

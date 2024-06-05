@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <script defer src="js/verify.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm" method="post" action="signup.php">
+            <input type="text" name="rollnumber" placeholder="Roll Number" required>
+            <input type="text" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number" required>
+            <button type="button" id="sendCode">Send Verification Code</button>
+            <input type="text" name="verificationcode" id="verificationcode" placeholder="Verification Code" required style="display:none;">
+            <input type="password" name="password" placeholder="Password" required style="display:none;">
+            <button type="submit" id="signupButton" disabled>Sign Up</button>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+    <script>
+        document.getElementById("sendCode").addEventListener("click", function() {
+            document.getElementById("verificationcode").style.display = "block";
+            document.querySelector("input[name='password']").style.display = "block";
+            document.getElementById("signupButton").disabled = false;
+        });
+
+  
+        document.getElementById("signupForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const rollnumber = this.rollnumber.value;
+            const mobilenumber = this.mobilenumber.value;
+            const verificationcode = this.verificationcode.value;
+            const password = this.password.value;
+            if (rollnumber === "admin" && mobilenumber === "1234567890" && verificationcode === "123456" && password === "admin") {
+                alert("Sign Up Successful");
+                window.location.href = "login.html";
+            } else {
+                alert("Invalid Credentials");
+            }
+        });
+
+    </script>
+</body>
+</html>

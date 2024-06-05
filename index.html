@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="verify.js"></script>
+    <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #5cb85c;
+    overflow: hidden;
+}
+
+.navbar .menu-icon {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    padding: 10px;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.nav-list li {
+    float: left;
+}
+
+.nav-list li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+}
+
+.nav-list li a:hover {
+    color: #000000;
+    background-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .navbar .menu-icon {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list.show {
+        display: block;
+    }
+}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button[type="button"],
+        button[type="submit"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            font-size: 16px;
+        }
+
+        button[type="button"],
+        button[type="submit"] {
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button[type="button"]:hover,
+        button[type="submit"]:hover {
+            background: #4cae4c;
+        }
+
+        a {
+            color: #5cb85c;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-list" id="navList">
+            <li id="navList" onclick="openPage('Chat')" id="defaultOpen"><a href="chat.html">Chat</a></li>
+            <li><a href="home/About.html">About</a></li>
+            <li><a href="home/News.html">News</a></li>
+            <li><a href="home/Portfolio.html">Portfolio</a></li>
+            <li><a href="home/Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('navList');
+            navList.classList.toggle('show');
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="css/payment.css">
+    <script defer src="js/payment.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>University Payment Gateway</h2>
+        <form id="paymentForm" method="post" action="php/process_payment.php">
+            <label for="university">Select University</label>
+            <select id="university" name="university" required>
+                <option value="AA University">AA University</option>
+                <option value="BB University">BB University</option>
+                <option value="CC University">CC University</option>
+            </select>
+
+            <label for="course">Select Course</label>
+            <select id="course" name="course" required>
+                <option value="BBA">BBA</option>
+                <option value="BCA">BCA</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="Medical">Medical</option>
+            </select>
+
+            <div class="price" id="price">₹6000</div>
+
+            <input type="hidden" name="price" id="hiddenPrice" value="6000">
+            
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        const university = document.getElementById('university');
+        const course = document.getElementById('course');
+        const price = document.getElementById('price');
+        const hiddenPrice = document.getElementById('hiddenPrice');
+
+        course.addEventListener('change', () => {
+            if (course.value === 'BBA' || course.value === 'BCA') {
+                price.textContent = '₹6000';
+                hiddenPrice.value = '6000';
+            } else if (course.value === 'B.Tech') {
+                price.textContent = '₹8000';
+                hiddenPrice.value = '8000';
+            } else if (course.value === 'Medical') {
+                price.textContent = '₹10000';
+                hiddenPrice.value = '10000';
+            }
+        });
+        </script>
+</body>
+</html>
